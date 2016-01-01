@@ -24,7 +24,7 @@ class MemeDetailViewController: UIViewController {
     self.tabBarController?.tabBar.hidden = true
     
     // Set image to be displayed
-    var image = meme.memedImage
+    let image = meme.memedImage
     memeDetailImage.image = image;
     self.view.addSubview(memeDetailImage)
     

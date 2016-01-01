@@ -76,7 +76,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
   
   
   // Image Picker Functions
-  func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+  func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
     if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
       imagePickerView.image = image
       
@@ -189,13 +189,13 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
   // Save Meme
   func saveMeme() {
     //Create the meme
-    var meme = Meme(topText: textFieldTop.text!, bottomText: textFieldBottom.text!, originalImage: imagePickerView.image!, memedImage: generateMemedImage())
+    let meme = Meme(topText: textFieldTop.text!, bottomText: textFieldBottom.text!, originalImage: imagePickerView.image!, memedImage: generateMemedImage())
     
     // save the meme to the array by appending it to the end
     (UIApplication.sharedApplication().delegate as!
     AppDelegate).memes.append(meme)
 
-    println("saving")  // Debug line
+    print("saving")  // Debug line
     
   }
   
